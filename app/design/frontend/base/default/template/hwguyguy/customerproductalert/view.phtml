@@ -1,0 +1,42 @@
+<?php /** @var Hwguyguy_CustomerProductAlert_Block_View $this */ ?>
+<div class="my-product-alert">
+	<div class="page-title">
+		<h1><?php echo $this->__('My Product Alert') ?></h1>
+	</div>
+
+	<?php if (count($this->getStockProducts())): ?>
+		<h2 class="legend"><?php echo $this->__('Stock alert') ?></h2>
+		<div class="fieldset">
+			<?php foreach ($this->getStockProducts() as $product): ?>
+				<?php $productUrl = $this->getProductUrl($product); ?>
+				<a class="product-image" href="<?php echo $productUrl ?>" title="<?php echo $product->getName() ?>">
+					<img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize(113, 113); ?>" width="113" height="113" alt="<?php echo $this->escapeHtml($product->getName()) ?>" />
+				</a>
+				<h3 class="product-name">
+					<a href="<?php echo $productUrl ?>" title="<?php echo $product->getName() ?>"><?php echo $product->getName() ?></a>
+				</h3>
+				<a href="<?php echo $this->getUrl('productalert/unsubscribe/stock', array('product' => $product->getId())) ?>"><?php echo $this->__('Unsubscribe product alert') ?></a>
+			<?php endforeach; ?>
+		</div>
+	<?php endif; ?>
+
+	<?php if (count($this->getPriceProducts())): ?>
+		<h2 class="legend"><?php echo $this->__('Price change alert') ?></h2>
+		<div class="fieldset">
+			<?php foreach ($this->getPriceProducts() as $product): ?>
+				<?php $productUrl = $this->getProductUrl($product); ?>
+				<a class="product-image" href="<?php echo $productUrl ?>" title="<?php echo $product->getName() ?>">
+					<img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize(113, 113); ?>" width="113" height="113" alt="<?php echo $this->escapeHtml($product->getName()) ?>" />
+				</a>
+				<h3 class="product-name">
+					<a href="<?php echo $productUrl ?>" title="<?php echo $product->getName() ?>"><?php echo $product->getName() ?></a>
+				</h3>
+				<a href="<?php echo $this->getUrl('productalert/unsubscribe/price', array('product' => $product->getId())) ?>"><?php echo $this->__('Unsubscribe product alert') ?></a>
+			<?php endforeach; ?>
+		</div>
+	<?php endif; ?>
+
+	<div class="buttons-set">
+		<p class="back-link"><a href="<?php echo $this->escapeUrl($this->getUrl('customer/account')) ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>
+	</div>
+</div>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Hwguyguy_CustomerProductAlert>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Hwguyguy_CustomerProductAlert>
+	</modules>
+</config>

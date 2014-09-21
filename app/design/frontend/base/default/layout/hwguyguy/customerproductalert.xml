@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<layout version="0.0.1">
+
+	<!--
+		Customer account pages, rendered for all tabs in dashboard
+	-->
+
+	<customer_account>
+		<reference name="customer_account_navigation">
+			<action method="addLink" translate="label" module="hwguyguy_customerproductalert"><name>customer-product-alert</name><path>customer-product-alert/</path><label>My Product Alert</label></action>
+		</reference>
+	</customer_account>
+
+	<hwguyguy_customerproductalert_index_index translate="label">
+		<label>My Product Alert</label>
+		<update handle="customer_account" />
+		<reference name="my.account.wrapper">
+			<block type="hwguyguy_customerproductalert/view" name="hwguyguy" template="hwguyguy/customerproductalert/view.phtml"/>
+		</reference>
+	</hwguyguy_customerproductalert_index_index>
+</layout>

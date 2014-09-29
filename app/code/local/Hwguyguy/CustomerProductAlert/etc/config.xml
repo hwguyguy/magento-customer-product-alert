@@ -34,5 +34,8 @@
 				</hwguyguy_customerproductalert>
 			</updates>
 		</layout>
+		<secure_url>
+			<hwguyguy_customerproductalert>/customer-product-alert/</hwguyguy_customerproductalert>
+		</secure_url>
 	</frontend>
 </config>

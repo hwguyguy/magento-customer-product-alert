@@ -17,6 +17,7 @@ class Hwguyguy_CustomerProductAlert_Block_View extends Mage_Core_Block_Template 
 	protected function getProductCollectionByIds($productIds = array()) {
 		$products = Mage::getModel('catalog/product')->getCollection()
 			->addAttributeToFilter('entity_id', array('in' => $productIds))
+			->addAttributeToFilter('status', Mage_Catalog_Model_Product_Status::STATUS_ENABLED)
 			->addAttributeToSelect(array('name', 'image', 'small_image', 'thumbnail'));
 
 		$idProducts = array();
@@ -26,6 +27,7 @@ class Hwguyguy_CustomerProductAlert_Block_View extends Mage_Core_Block_Template 
 
 		$products = array();
 		foreach ($productIds as $id) {
+			if (!isset($idProducts[$id])) { continue; }
 			$products[] = $idProducts[$id];
 		}
 
